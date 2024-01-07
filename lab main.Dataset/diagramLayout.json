@@ -10,8 +10,8 @@
       "nodes": [
         {
           "location": {
-            "x": 0,
-            "y": 0
+            "x": 1277.1670320209312,
+            "y": 368.44428289390328
           },
           "nodeIndex": "Orders",
           "nodeLineageTag": "52b5f0da-aa7c-419a-8a9f-8c3d3520dbce",
@@ -23,8 +23,8 @@
         },
         {
           "location": {
-            "x": 284,
-            "y": 86
+            "x": 1561.1670320209312,
+            "y": 454.44428289390328
           },
           "nodeIndex": "Returns",
           "nodeLineageTag": "3342e57e-dbc6-4a4b-a0a5-fba60c758206",
@@ -36,13 +36,104 @@
         },
         {
           "location": {
-            "x": 568,
-            "y": 86
+            "x": 1845.1670320209312,
+            "y": 454.44428289390328
           },
           "nodeIndex": "Users",
           "nodeLineageTag": "8e9b8b77-7243-43ca-a5f6-7d56ae2ba375",
           "size": {
             "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 729.16703202093117,
+            "y": 726.88856578780644
+          },
+          "nodeIndex": "Customers",
+          "nodeLineageTag": "5e45a853-3be9-4302-8823-da0b0b2ddb74",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 654.32528146726725,
+            "y": 343.73595882744434
+          },
+          "nodeIndex": "Employees",
+          "nodeLineageTag": "61b2568b-5cd3-413b-8761-e80899d829f4",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 10,
+            "y": 343.81035978202226
+          },
+          "nodeIndex": "Order Details",
+          "nodeLineageTag": "66b4c7df-8ae1-4227-ac48-ffb558323b43",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 315.34389649904881,
+            "y": 343.73665159215489
+          },
+          "nodeIndex": "Orders (2)",
+          "nodeLineageTag": "664bb2c6-2f4f-4d73-b602-06e3cb2f320e",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 444.59091315801663,
+            "y": 697.1785571746484
+          },
+          "nodeIndex": "Products",
+          "nodeLineageTag": "99a68668-12f7-48f7-9e15-58f74d903bf9",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 267.13492955107688,
+            "y": -10
+          },
+          "nodeIndex": "Shippers",
+          "nodeLineageTag": "28cb538e-fa8e-4947-a330-ceadc706a1b1",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1003.1670320209312,
+            "y": 368.44428289390328
+          },
+          "nodeIndex": "Suppliers",
+          "nodeLineageTag": "651a24e5-a3a4-4b03-813a-1581f7a41f07",
+          "size": {
+            "height": 300,
             "width": 234
           },
           "zIndex": 0
