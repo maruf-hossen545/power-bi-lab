@@ -46,6 +46,19 @@
             "width": 234
           },
           "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 852,
+            "y": 86
+          },
+          "nodeIndex": "Product Price",
+          "nodeLineageTag": "06c997c0-11ed-4a98-bc45-1e8e631ef806",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "All tables",

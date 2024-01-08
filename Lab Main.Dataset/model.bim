@@ -12,7 +12,7 @@
       },
       {
         "name": "PBI_QueryOrder",
-        "value": "[\"Orders\",\"Returns\",\"Users\"]"
+        "value": "[\"Orders\",\"Returns\",\"Users\",\"Product Price\"]"
       },
       {
         "name": "__PBI_TimeIntelligenceEnabled",
@@ -64,6 +64,10 @@
           {
             "name": "PBI_ResultType",
             "value": "Table"
+          },
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
           }
         ],
         "columns": [
@@ -439,6 +443,45 @@
             "lineageTag": "f9ad0f59-e742-4bf3-831e-9ee779dce388",
             "sourceColumn": "Order ID",
             "summarizeBy": "count"
+          },
+          {
+            "name": "Customer First  Name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "acb33da2-ea07-4f64-b780-7e3273811655",
+            "sourceColumn": "Customer First  Name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Customer LastName",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "1fab3542-6757-4971-b550-6748e424987d",
+            "sourceColumn": "Customer LastName",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Customer Full Name.3",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "596d3e24-ef7e-4654-8b64-5c9288de7989",
+            "sourceColumn": "Customer Full Name.3",
+            "summarizeBy": "none"
           }
         ],
         "lineageTag": "2f8f6ffb-4314-40be-b6e8-988df329354e",
@@ -452,9 +495,16 @@
                 "    Source = Excel.Workbook(File.Contents(\"D:\\Power BI Exercise Files (1)\\Sample Superstore.xlsx\"), null, true),",
                 "    Orders_Sheet = Source{[Item=\"Orders\",Kind=\"Sheet\"]}[Data],",
                 "    #\"Promoted Headers\" = Table.PromoteHeaders(Orders_Sheet, [PromoteAllScalars=true]),",
-                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"Row ID\", Int64.Type}, {\"Order Priority\", type text}, {\"Discount\", type number}, {\"Unit Price\", type number}, {\"Shipping Cost\", type number}, {\"Customer ID\", Int64.Type}, {\"Customer Name\", type text}, {\"Ship Mode\", type text}, {\"Customer Segment\", type text}, {\"Product Category\", type text}, {\"Product Sub-Category\", type text}, {\"Product Container\", type text}, {\"Product Name\", type text}, {\"Product Base Margin\", type number}, {\"Region\", type text}, {\"State or Province\", type text}, {\"City\", type text}, {\"Postal Code\", Int64.Type}, {\"Order Date\", type date}, {\"Ship Date\", type date}, {\"Profit\", type number}, {\"Quantity ordered new\", Int64.Type}, {\"Sales\", type number}, {\"Order ID\", Int64.Type}})",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"Row ID\", Int64.Type}, {\"Order Priority\", type text}, {\"Discount\", type number}, {\"Unit Price\", type number}, {\"Shipping Cost\", type number}, {\"Customer ID\", Int64.Type}, {\"Customer Name\", type text}, {\"Ship Mode\", type text}, {\"Customer Segment\", type text}, {\"Product Category\", type text}, {\"Product Sub-Category\", type text}, {\"Product Container\", type text}, {\"Product Name\", type text}, {\"Product Base Margin\", type number}, {\"Region\", type text}, {\"State or Province\", type text}, {\"City\", type text}, {\"Postal Code\", Int64.Type}, {\"Order Date\", type date}, {\"Ship Date\", type date}, {\"Profit\", type number}, {\"Quantity ordered new\", Int64.Type}, {\"Sales\", type number}, {\"Order ID\", Int64.Type}}),",
+                "    #\"Added Custom\" = Table.AddColumn(#\"Changed Type\", \"Customer Name.1\", each [Customer Name]),",
+                "    #\"Duplicated Column\" = Table.DuplicateColumn(#\"Added Custom\", \"Customer Name.1\", \"Customer Name.1 - Copy\"),",
+                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Duplicated Column\",{{\"Customer Name.1\", \"Customer First Name\"}, {\"Customer Name.1 - Copy\", \"Customer Full Name\"}}),",
+                "    #\"Split Column by Delimiter\" = Table.SplitColumn(#\"Renamed Columns\", \"Customer Full Name\", Splitter.SplitTextByDelimiter(\" \", QuoteStyle.Csv), {\"Customer Full Name.1\", \"Customer Full Name.2\", \"Customer Full Name.3\"}),",
+                "    #\"Changed Type1\" = Table.TransformColumnTypes(#\"Split Column by Delimiter\",{{\"Customer Full Name.1\", type text}, {\"Customer Full Name.2\", type text}, {\"Customer Full Name.3\", type text}}),",
+                "    #\"Renamed Columns1\" = Table.RenameColumns(#\"Changed Type1\",{{\"Customer Full Name.1\", \"Customer First  Name\"}, {\"Customer Full Name.2\", \"Customer LastName\"}}),",
+                "    #\"Removed Columns\" = Table.RemoveColumns(#\"Renamed Columns1\",{\"Customer First Name\"})",
                 "in",
-                "    #\"Changed Type\""
+                "    #\"Removed Columns\""
               ],
               "type": "m"
             }
@@ -1088,12 +1138,30 @@
         "annotations": [
           {
             "name": "PBI_ResultType",
-            "value": "Exception"
+            "value": "Table"
+          },
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
           }
         ],
         "columns": [
           {
-            "name": "Column1",
+            "name": "Order ID",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "f1a5579b-b5c7-43a7-be19-3645ff076868",
+            "sourceColumn": "Order ID",
+            "summarizeBy": "count"
+          },
+          {
+            "name": "Status",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
@@ -1101,12 +1169,12 @@
               }
             ],
             "dataType": "string",
-            "lineageTag": "a3ccdd1a-03d7-40be-9a0a-48eed9842efa",
-            "sourceColumn": "Column1",
+            "lineageTag": "177e947a-d816-45a8-a497-0126efa3b302",
+            "sourceColumn": "Status",
             "summarizeBy": "none"
           },
           {
-            "name": "Column2",
+            "name": "Is Returns",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
@@ -1114,8 +1182,8 @@
               }
             ],
             "dataType": "string",
-            "lineageTag": "c6d80026-a70c-4e46-9139-57f107cb70e2",
-            "sourceColumn": "Column2",
+            "lineageTag": "1518c7c2-ef5c-4ec8-9817-2c5d2dd7999a",
+            "sourceColumn": "Is Returns",
             "summarizeBy": "none"
           }
         ],
@@ -1128,9 +1196,15 @@
               "expression": [
                 "let",
                 "    Source = Excel.Workbook(File.Contents(\"D:\\Power BI Exercise Files (1)\\Sample Superstore.xlsx\"), null, true),",
-                "    Returns_Sheet = Source{[Item=\"Returns\",Kind=\"Sheet\"]}[Data]",
+                "    Returns_Sheet = Source{[Item=\"Returns\",Kind=\"Sheet\"]}[Data],",
+                "    #\"Filtered Rows\" = Table.SelectRows(Returns_Sheet, each true),",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(#\"Filtered Rows\", [PromoteAllScalars=true]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"Order ID\", Int64.Type}, {\"Status\", type text}}),",
+                "    #\"Added Custom\" = Table.AddColumn(#\"Changed Type\", \"Is Returns\", each [Status]),",
+                "    #\"Replaced Value\" = Table.ReplaceValue(#\"Added Custom\",\"Returned\",\"YES\",Replacer.ReplaceText,{\"Is Returns\"}),",
+                "    #\"Filtered Rows1\" = Table.SelectRows(#\"Replaced Value\", each true)",
                 "in",
-                "    Returns_Sheet"
+                "    #\"Filtered Rows1\""
               ],
               "type": "m"
             }
@@ -1185,6 +1259,79 @@
                 "    Users_Sheet = Source{[Item=\"Users\",Kind=\"Sheet\"]}[Data]",
                 "in",
                 "    Users_Sheet"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Product Price",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Product Name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "3c84e6b7-61a1-486f-b4c8-aae179e1fb56",
+            "sourceColumn": "Product Name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Unit Price",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "35e7ba51-d8f6-4d55-a850-f5ca43db1842",
+            "sourceColumn": "Unit Price",
+            "summarizeBy": "sum"
+          }
+        ],
+        "lineageTag": "06c997c0-11ed-4a98-bc45-1e8e631ef806",
+        "partitions": [
+          {
+            "name": "Product Price",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Excel.Workbook(File.Contents(\"D:\\Power BI Exercise Files (1)\\Sample Superstore.xlsx\"), null, true),",
+                "    Orders_Sheet = Source{[Item=\"Orders\",Kind=\"Sheet\"]}[Data],",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Orders_Sheet, [PromoteAllScalars=true]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"Row ID\", Int64.Type}, {\"Order Priority\", type text}, {\"Discount\", type number}, {\"Unit Price\", type number}, {\"Shipping Cost\", type number}, {\"Customer ID\", Int64.Type}, {\"Customer Name\", type text}, {\"Ship Mode\", type text}, {\"Customer Segment\", type text}, {\"Product Category\", type text}, {\"Product Sub-Category\", type text}, {\"Product Container\", type text}, {\"Product Name\", type text}, {\"Product Base Margin\", type number}, {\"Region\", type text}, {\"State or Province\", type text}, {\"City\", type text}, {\"Postal Code\", Int64.Type}, {\"Order Date\", type date}, {\"Ship Date\", type date}, {\"Profit\", type number}, {\"Quantity ordered new\", Int64.Type}, {\"Sales\", type number}, {\"Order ID\", Int64.Type}}),",
+                "    #\"Added Custom\" = Table.AddColumn(#\"Changed Type\", \"Customer Name.1\", each [Customer Name]),",
+                "    #\"Duplicated Column\" = Table.DuplicateColumn(#\"Added Custom\", \"Customer Name.1\", \"Customer Name.1 - Copy\"),",
+                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Duplicated Column\",{{\"Customer Name.1\", \"Customer First Name\"}, {\"Customer Name.1 - Copy\", \"Customer Full Name\"}}),",
+                "    #\"Split Column by Delimiter\" = Table.SplitColumn(#\"Renamed Columns\", \"Customer Full Name\", Splitter.SplitTextByDelimiter(\" \", QuoteStyle.Csv), {\"Customer Full Name.1\", \"Customer Full Name.2\", \"Customer Full Name.3\"}),",
+                "    #\"Changed Type1\" = Table.TransformColumnTypes(#\"Split Column by Delimiter\",{{\"Customer Full Name.1\", type text}, {\"Customer Full Name.2\", type text}, {\"Customer Full Name.3\", type text}}),",
+                "    #\"Renamed Columns1\" = Table.RenameColumns(#\"Changed Type1\",{{\"Customer Full Name.1\", \"Customer First  Name\"}, {\"Customer Full Name.2\", \"Customer LastName\"}}),",
+                "    #\"Removed Columns\" = Table.RemoveColumns(#\"Renamed Columns1\",{\"Customer First Name\"}),",
+                "    #\"Removed Other Columns\" = Table.SelectColumns(#\"Removed Columns\",{\"Unit Price\", \"Product Name\"}),",
+                "    #\"Reordered Columns\" = Table.ReorderColumns(#\"Removed Other Columns\",{\"Product Name\", \"Unit Price\"})",
+                "in",
+                "    #\"Reordered Columns\""
               ],
               "type": "m"
             }
