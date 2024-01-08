@@ -54,6 +54,13 @@
         "joinOnDateBehavior": "datePartOnly",
         "toColumn": "Date",
         "toTable": "LocalDateTable_68435c60-a9f9-47b2-8281-54e88ffb4586"
+      },
+      {
+        "name": "f2e64115-74e1-4742-aed4-d154e4e20321",
+        "fromColumn": "Region",
+        "fromTable": "Orders",
+        "toColumn": "Region",
+        "toTable": "Users"
       }
     ],
     "sourceQueryCulture": "en-US",
@@ -1146,11 +1153,15 @@
           {
             "name": "PBI_ResultType",
             "value": "Table"
+          },
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
           }
         ],
         "columns": [
           {
-            "name": "Column1",
+            "name": "Region",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
@@ -1158,12 +1169,12 @@
               }
             ],
             "dataType": "string",
-            "lineageTag": "148ba642-1c62-4b31-8a0d-d1c9ca2b43f5",
-            "sourceColumn": "Column1",
+            "lineageTag": "b85b7ba7-2117-4600-9f7f-38764f1530bf",
+            "sourceColumn": "Region",
             "summarizeBy": "none"
           },
           {
-            "name": "Column2",
+            "name": "Manager First Name",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
@@ -1171,8 +1182,21 @@
               }
             ],
             "dataType": "string",
-            "lineageTag": "fe8b6e5f-ce9b-465b-8b96-710d38a4919a",
-            "sourceColumn": "Column2",
+            "lineageTag": "becba63e-5b8c-4fb6-ac38-b9b1acd21fd9",
+            "sourceColumn": "Manager First Name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Manager  Last Name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "2f8f50da-3f45-413a-b665-5f0330943aed",
+            "sourceColumn": "Manager  Last Name",
             "summarizeBy": "none"
           }
         ],
@@ -1186,9 +1210,18 @@
                 "let",
                 "    Source = Excel.Workbook(File.Contents(\"D:\\Power BI Exercise Files\\Sample Superstore.xlsx\"), null, true),",
                 "    Users_Sheet = Source{[Item=\"Users\",Kind=\"Sheet\"]}[Data],",
-                "    #\"Changed Type\" = Table.TransformColumnTypes(Users_Sheet,{{\"Column1\", type text}, {\"Column2\", type text}})",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(Users_Sheet,{{\"Column1\", type text}, {\"Column2\", type text}}),",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(#\"Changed Type\", [PromoteAllScalars=true]),",
+                "    #\"Changed Type1\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"Region\", type text}, {\"Manager\", type text}}),",
+                "    #\"Duplicated Column\" = Table.DuplicateColumn(#\"Changed Type1\", \"Manager\", \"Manager - Copy\"),",
+                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Duplicated Column\",{{\"Manager - Copy\", \"Manager  Last Name\"}, {\"Manager\", \"Manager First Name\"}}),",
+                "    #\"Replaced Value\" = Table.ReplaceValue(#\"Renamed Columns\",\"Chris\",\"Thomas\",Replacer.ReplaceText,{\"Manager  Last Name\"}),",
+                "    #\"Replaced Value1\" = Table.ReplaceValue(#\"Replaced Value\",\"Erin\",\"Heak\",Replacer.ReplaceText,{\"Manager  Last Name\"}),",
+                "    #\"Replaced Value2\" = Table.ReplaceValue(#\"Replaced Value1\",\"Sam\",\"Ketti\",Replacer.ReplaceText,{\"Manager  Last Name\"}),",
+                "    #\"Replaced Value3\" = Table.ReplaceValue(#\"Replaced Value2\",\"William\",\"Smith\",Replacer.ReplaceText,{\"Manager  Last Name\"}),",
+                "    #\"Changed Type2\" = Table.TransformColumnTypes(#\"Replaced Value3\",{{\"Manager  Last Name\", type text}})",
                 "in",
-                "    #\"Changed Type\""
+                "    #\"Changed Type2\""
               ],
               "type": "m"
             }
