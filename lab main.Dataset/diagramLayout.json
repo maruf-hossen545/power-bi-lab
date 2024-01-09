@@ -11,20 +11,20 @@
         {
           "location": {
             "x": 0,
-            "y": 0
+            "y": 4
           },
           "nodeIndex": "Orders",
           "nodeLineageTag": "586dfa9f-5893-44c8-8a26-7e03d7a53c0e",
           "size": {
-            "height": 300,
-            "width": 234
+            "height": 313,
+            "width": 142
           },
-          "zIndex": 0
+          "zIndex": 1
         },
         {
           "location": {
-            "x": 284,
-            "y": 86
+            "x": 192,
+            "y": 0
           },
           "nodeIndex": "Returns",
           "nodeLineageTag": "b66b6a4e-1170-4179-b4c7-6b682f3addc9",
@@ -32,12 +32,12 @@
             "height": 128,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 2
         },
         {
           "location": {
-            "x": 852,
-            "y": 86
+            "x": 789,
+            "y": 14
           },
           "nodeIndex": "Product Price",
           "nodeLineageTag": "9b052275-4b53-4302-a01b-f30b75ef9c8a",
@@ -45,24 +45,25 @@
             "height": 128,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 3
         },
         {
           "location": {
-            "x": 568,
-            "y": 86
+            "x": 479,
+            "y": 0
           },
           "nodeIndex": "Managers",
+          "nodeLineageTag": "a558263a-33c3-4af0-83fa-e4b7e6026d6b",
           "size": {
-            "height": 128,
+            "height": 145,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 4
         },
         {
           "location": {
-            "x": 1136,
-            "y": 0
+            "x": 468,
+            "y": 288
           },
           "nodeIndex": "Orders by Region",
           "nodeLineageTag": "c9ab8ce1-9b7b-4c6f-885b-5d166c136ffe",
@@ -70,33 +71,33 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 5
         },
         {
           "location": {
-            "x": 1420,
-            "y": 14
+            "x": 982,
+            "y": 97
           },
           "nodeIndex": "DimCustomers",
           "nodeLineageTag": "7a7c98f0-d362-42e9-b00c-d5818b5d7716",
           "size": {
-            "height": 272,
-            "width": 234
+            "height": 332,
+            "width": 185
           },
-          "zIndex": 0
+          "zIndex": 7
         },
         {
           "location": {
-            "x": 1704,
-            "y": 50
+            "x": 169,
+            "y": 233
           },
           "nodeIndex": "DimProducts",
           "nodeLineageTag": "7bb771c2-6630-44ea-a3b8-bf9902245ee5",
           "size": {
-            "height": 200,
+            "height": 178,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 6
         }
       ],
       "name": "All tables",

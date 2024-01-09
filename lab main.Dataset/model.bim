@@ -101,6 +101,28 @@
         "fromTable": "DimCustomers",
         "toColumn": "Region",
         "toTable": "Managers"
+      },
+      {
+        "name": "a4da0985-6755-4c0b-933b-b1876db3d5f7",
+        "fromColumn": "Order ID",
+        "fromTable": "Orders",
+        "toColumn": "Order ID",
+        "toTable": "Returns"
+      },
+      {
+        "name": "d6bcecb4-4102-4a84-824e-ce1b366d2e14",
+        "fromColumn": "Customer ID",
+        "fromTable": "DimCustomers",
+        "isActive": false,
+        "toColumn": "Region",
+        "toTable": "Managers"
+      },
+      {
+        "name": "b27c6f76-f24b-4f54-bd0e-623a61a0aaeb",
+        "fromColumn": "Order Priority",
+        "fromTable": "Orders",
+        "toColumn": "Produc ID",
+        "toTable": "DimProducts"
       }
     ],
     "sourceQueryCulture": "en-US",
@@ -490,7 +512,7 @@
             "formatString": "0",
             "lineageTag": "14e9ee56-5e35-493f-b97f-630bf3f3cf40",
             "sourceColumn": "Order ID",
-            "summarizeBy": "count"
+            "summarizeBy": "none"
           }
         ],
         "hierarchies": [
@@ -1178,6 +1200,11 @@
             "value": "Table"
           }
         ],
+        "changedProperties": [
+          {
+            "property": "IsHidden"
+          }
+        ],
         "columns": [
           {
             "name": "Order ID",
@@ -1187,11 +1214,17 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "int64",
             "formatString": "0",
+            "isHidden": true,
             "lineageTag": "ea005d66-a2e5-460c-a6ee-88899cece95b",
             "sourceColumn": "Order ID",
-            "summarizeBy": "count"
+            "summarizeBy": "none"
           },
           {
             "name": "Status",
@@ -1201,12 +1234,19 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "string",
+            "isHidden": true,
             "lineageTag": "ba69930f-34c2-4d30-8a51-ad49a1589065",
             "sourceColumn": "Status",
             "summarizeBy": "none"
           }
         ],
+        "isHidden": true,
         "lineageTag": "b66b6a4e-1170-4179-b4c7-6b682f3addc9",
         "partitions": [
           {
@@ -2398,6 +2438,11 @@
             "value": "Table"
           }
         ],
+        "changedProperties": [
+          {
+            "property": "IsHidden"
+          }
+        ],
         "columns": [
           {
             "name": "Produc ID",
@@ -2407,11 +2452,17 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "int64",
             "formatString": "0",
+            "isHidden": true,
             "lineageTag": "9d216ed3-d0ec-43c7-8d15-f8195035a468",
             "sourceColumn": "Produc ID",
-            "summarizeBy": "sum"
+            "summarizeBy": "none"
           },
           {
             "name": "Product Name",
@@ -2421,7 +2472,13 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "string",
+            "isHidden": true,
             "lineageTag": "d7645fe1-d223-4708-9a1e-093def99b06d",
             "sourceColumn": "Product Name",
             "summarizeBy": "none"
@@ -2434,7 +2491,13 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "string",
+            "isHidden": true,
             "lineageTag": "59567df4-6747-40bb-bb33-7d327f8ba0ea",
             "sourceColumn": "Product Category",
             "summarizeBy": "none"
@@ -2447,7 +2510,13 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "string",
+            "isHidden": true,
             "lineageTag": "39d1bfbd-e66a-4273-a053-943084dabe7c",
             "sourceColumn": "Product Sub-Category",
             "summarizeBy": "none"
@@ -2460,12 +2529,19 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "string",
+            "isHidden": true,
             "lineageTag": "f5a2b300-2b7c-488d-a9d5-887fe2b00123",
             "sourceColumn": "Product Container",
             "summarizeBy": "none"
           }
         ],
+        "isHidden": true,
         "lineageTag": "7bb771c2-6630-44ea-a3b8-bf9902245ee5",
         "partitions": [
           {
