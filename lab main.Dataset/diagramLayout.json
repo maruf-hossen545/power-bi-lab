@@ -71,6 +71,32 @@
             "width": 234
           },
           "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1420,
+            "y": 14
+          },
+          "nodeIndex": "DimCustomers",
+          "nodeLineageTag": "7a7c98f0-d362-42e9-b00c-d5818b5d7716",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1704,
+            "y": 50
+          },
+          "nodeIndex": "DimProducts",
+          "nodeLineageTag": "7bb771c2-6630-44ea-a3b8-bf9902245ee5",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "All tables",

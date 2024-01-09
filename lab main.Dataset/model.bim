@@ -12,7 +12,7 @@
       },
       {
         "name": "PBI_QueryOrder",
-        "value": "[\"Orders\",\"Returns\",\"Managers\",\"Product Price\",\"Orders by Region\"]"
+        "value": "[\"Orders\",\"Returns\",\"Managers\",\"Product Price\",\"Orders by Region\",\"DimCustomers\",\"DimProducts\"]"
       },
       {
         "name": "__PBI_TimeIntelligenceEnabled",
@@ -94,6 +94,13 @@
         "isActive": false,
         "toColumn": "Region",
         "toTable": "Managers"
+      },
+      {
+        "name": "b34ab3fe-ffe4-4204-840e-989241cf2315",
+        "fromColumn": "Region",
+        "fromTable": "DimCustomers",
+        "toColumn": "Region",
+        "toTable": "Managers"
       }
     ],
     "sourceQueryCulture": "en-US",
@@ -144,13 +151,10 @@
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
               }
             ],
             "dataType": "double",
+            "formatString": "0%;-0%;0%",
             "lineageTag": "acecdcd7-b170-4abb-bed3-a9434b513d56",
             "sourceColumn": "Discount",
             "summarizeBy": "sum"
@@ -161,13 +165,10 @@
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
               }
             ],
             "dataType": "double",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
             "lineageTag": "f5b541c7-d175-44e3-8732-e34cbbb3e3c2",
             "sourceColumn": "Unit Price",
             "summarizeBy": "sum"
@@ -178,13 +179,10 @@
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
               }
             ],
             "dataType": "double",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
             "lineageTag": "faa9ecc2-21ad-4c57-a1ce-3f369052fa66",
             "sourceColumn": "Shipping Cost",
             "summarizeBy": "sum"
@@ -332,6 +330,7 @@
                 "value": "Automatic"
               }
             ],
+            "dataCategory": "StateOrProvince",
             "dataType": "string",
             "lineageTag": "88cdf1cb-4bfd-4ba0-94a0-30f1d21c4cc2",
             "sourceColumn": "State",
@@ -358,6 +357,7 @@
                 "value": "Automatic"
               }
             ],
+            "dataCategory": "PostalCode",
             "dataType": "int64",
             "formatString": "0",
             "lineageTag": "4e1d22b9-0e44-4a33-b0d2-d2fbe2d9a26b",
@@ -374,10 +374,14 @@
               {
                 "name": "UnderlyingDateTimeDataType",
                 "value": "Date"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isDateTimeCustom\":true}"
               }
             ],
             "dataType": "dateTime",
-            "formatString": "Long Date",
+            "formatString": "mmmm d\\, yyyy",
             "lineageTag": "4a0d472a-951f-46cd-84ae-8f8c9e36a003",
             "sourceColumn": "Order Date",
             "summarizeBy": "none",
@@ -403,10 +407,14 @@
               {
                 "name": "UnderlyingDateTimeDataType",
                 "value": "Date"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isDateTimeCustom\":true}"
               }
             ],
             "dataType": "dateTime",
-            "formatString": "Long Date",
+            "formatString": "mmmm d\\, yyyy",
             "lineageTag": "0cfab6b3-671e-45c5-9bbd-f7d981f160c2",
             "sourceColumn": "Ship Date",
             "summarizeBy": "none",
@@ -483,6 +491,38 @@
             "lineageTag": "14e9ee56-5e35-493f-b97f-630bf3f3cf40",
             "sourceColumn": "Order ID",
             "summarizeBy": "count"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Region Hierarchy",
+            "levels": [
+              {
+                "name": "Region",
+                "column": "Region",
+                "lineageTag": "fbd1b4e7-d5ae-4a7c-83a0-36aafadf242b",
+                "ordinal": 0
+              },
+              {
+                "name": "State",
+                "column": "State",
+                "lineageTag": "799a0c6f-cd4a-4fc4-9d0a-bc4b4dc38460",
+                "ordinal": 1
+              },
+              {
+                "name": "City",
+                "column": "City",
+                "lineageTag": "7dfe47cc-8f9f-46f8-80e5-c7145e9509a2",
+                "ordinal": 2
+              },
+              {
+                "name": "Postal Code",
+                "column": "Postal Code",
+                "lineageTag": "98a7b0e4-6fa5-4a1e-8f08-ceb5a19625ea",
+                "ordinal": 3
+              }
+            ],
+            "lineageTag": "330c2787-5829-480f-b38f-ec16b38ee205"
           }
         ],
         "lineageTag": "586dfa9f-5893-44c8-8a26-7e03d7a53c0e",
@@ -2196,6 +2236,263 @@
           }
         ],
         "showAsVariationsOnly": true
+      },
+      {
+        "name": "DimCustomers",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Customer ID",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "87c1135a-6b3c-47f3-8a65-c2ff2cd9d296",
+            "sourceColumn": "Customer ID",
+            "summarizeBy": "count"
+          },
+          {
+            "name": "Customer Name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "1a9563cf-849f-42a9-9d53-baf7d734a7a1",
+            "sourceColumn": "Customer Name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "City",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "da65dec5-f197-4a28-84e7-e50ce6d5f7fc",
+            "sourceColumn": "City",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "State",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "73fd5262-e701-4c37-853d-a059ad908b79",
+            "sourceColumn": "State",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Postal Code",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "441e71be-200b-48be-ae30-91fccf1def20",
+            "sourceColumn": "Postal Code",
+            "summarizeBy": "count"
+          },
+          {
+            "name": "Region",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "cc014712-717c-4fd9-8ac3-d76e00176632",
+            "sourceColumn": "Region",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Customer Segment",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "a7fbfab7-d927-41f1-8f79-0e1ba3b528c3",
+            "sourceColumn": "Customer Segment",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Discount",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "eeb0c668-45cc-4528-8d43-58c6fd1550bb",
+            "sourceColumn": "Discount",
+            "summarizeBy": "sum"
+          }
+        ],
+        "lineageTag": "7a7c98f0-d362-42e9-b00c-d5818b5d7716",
+        "partitions": [
+          {
+            "name": "DimCustomers",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Excel.Workbook(File.Contents(\"D:\\Power BI Exercise Files\\Sample Superstore.xlsx\"), null, true),",
+                "    Orders_Sheet = Source{[Item=\"Orders\",Kind=\"Sheet\"]}[Data],",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Orders_Sheet, [PromoteAllScalars=true]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"Row ID\", Int64.Type}, {\"Order Priority\", type text}, {\"Discount\", type number}, {\"Unit Price\", type number}, {\"Shipping Cost\", type number}, {\"Customer ID\", Int64.Type}, {\"Customer Name\", type text}, {\"Ship Mode\", type text}, {\"Customer Segment\", type text}, {\"Product Category\", type text}, {\"Product Sub-Category\", type text}, {\"Product Container\", type text}, {\"Product Name\", type text}, {\"Product Base Margin\", type number}, {\"Region\", type text}, {\"State or Province\", type text}, {\"City\", type text}, {\"Postal Code\", Int64.Type}, {\"Order Date\", type date}, {\"Ship Date\", type date}, {\"Profit\", type number}, {\"Quantity ordered new\", Int64.Type}, {\"Sales\", type number}, {\"Order ID\", Int64.Type}}),",
+                "    #\"Filtered Rows\" = Table.SelectRows(#\"Changed Type\", each ([State or Province] = \"Arizona\" or [State or Province] = \"California\" or [State or Province] = \"Florida\" or [State or Province] = \"New Jersey\" or [State or Province] = \"New York\")),",
+                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Filtered Rows\",{{\"State or Province\", \"State\"}}),",
+                "    #\"Sorted Rows\" = Table.Sort(#\"Renamed Columns\",{{\"State\", Order.Ascending}}),",
+                "    #\"Removed Other Columns\" = Table.SelectColumns(#\"Sorted Rows\",{\"Discount\", \"Customer ID\", \"Customer Name\", \"Customer Segment\", \"Region\", \"State\", \"City\", \"Postal Code\"}),",
+                "    #\"Reordered Columns\" = Table.ReorderColumns(#\"Removed Other Columns\",{\"Customer ID\", \"Customer Name\", \"City\", \"State\", \"Postal Code\", \"Region\", \"Customer Segment\", \"Discount\"})",
+                "in",
+                "    #\"Reordered Columns\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimProducts",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Produc ID",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "9d216ed3-d0ec-43c7-8d15-f8195035a468",
+            "sourceColumn": "Produc ID",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Product Name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "d7645fe1-d223-4708-9a1e-093def99b06d",
+            "sourceColumn": "Product Name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Product Category",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "59567df4-6747-40bb-bb33-7d327f8ba0ea",
+            "sourceColumn": "Product Category",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Product Sub-Category",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "39d1bfbd-e66a-4273-a053-943084dabe7c",
+            "sourceColumn": "Product Sub-Category",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Product Container",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "f5a2b300-2b7c-488d-a9d5-887fe2b00123",
+            "sourceColumn": "Product Container",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "7bb771c2-6630-44ea-a3b8-bf9902245ee5",
+        "partitions": [
+          {
+            "name": "DimProducts",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Excel.Workbook(File.Contents(\"D:\\Power BI Exercise Files\\Sample Superstore.xlsx\"), null, true),",
+                "    Orders_Sheet = Source{[Item=\"Orders\",Kind=\"Sheet\"]}[Data],",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Orders_Sheet, [PromoteAllScalars=true]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"Row ID\", Int64.Type}, {\"Order Priority\", type text}, {\"Discount\", type number}, {\"Unit Price\", type number}, {\"Shipping Cost\", type number}, {\"Customer ID\", Int64.Type}, {\"Customer Name\", type text}, {\"Ship Mode\", type text}, {\"Customer Segment\", type text}, {\"Product Category\", type text}, {\"Product Sub-Category\", type text}, {\"Product Container\", type text}, {\"Product Name\", type text}, {\"Product Base Margin\", type number}, {\"Region\", type text}, {\"State or Province\", type text}, {\"City\", type text}, {\"Postal Code\", Int64.Type}, {\"Order Date\", type date}, {\"Ship Date\", type date}, {\"Profit\", type number}, {\"Quantity ordered new\", Int64.Type}, {\"Sales\", type number}, {\"Order ID\", Int64.Type}}),",
+                "    #\"Filtered Rows\" = Table.SelectRows(#\"Changed Type\", each ([State or Province] = \"Arizona\" or [State or Province] = \"California\" or [State or Province] = \"Florida\" or [State or Province] = \"New Jersey\" or [State or Province] = \"New York\")),",
+                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Filtered Rows\",{{\"State or Province\", \"State\"}}),",
+                "    #\"Sorted Rows\" = Table.Sort(#\"Renamed Columns\",{{\"State\", Order.Ascending}}),",
+                "    #\"Removed Other Columns\" = Table.SelectColumns(#\"Sorted Rows\",{\"Product Category\", \"Product Sub-Category\", \"Product Container\", \"Product Name\"}),",
+                "    #\"Reordered Columns\" = Table.ReorderColumns(#\"Removed Other Columns\",{\"Product Name\", \"Product Category\", \"Product Sub-Category\", \"Product Container\"}),",
+                "    #\"Added Index\" = Table.AddIndexColumn(#\"Reordered Columns\", \"Index\", 1, 1, Int64.Type),",
+                "    #\"Reordered Columns1\" = Table.ReorderColumns(#\"Added Index\",{\"Index\", \"Product Name\", \"Product Category\", \"Product Sub-Category\", \"Product Container\"}),",
+                "    #\"Renamed Columns1\" = Table.RenameColumns(#\"Reordered Columns1\",{{\"Index\", \"Produc ID\"}})",
+                "in",
+                "    #\"Renamed Columns1\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
       }
     ]
   }
