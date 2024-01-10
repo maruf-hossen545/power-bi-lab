@@ -39,10 +39,35 @@
             "x": 568,
             "y": 86
           },
-          "nodeIndex": "Users",
-          "nodeLineageTag": "0cdc347b-6a2a-43b8-ba8f-c1a81b7b2a74",
+          "nodeIndex": "manager",
           "size": {
             "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 852,
+            "y": 0
+          },
+          "nodeIndex": "sales by region",
+          "nodeLineageTag": "eb51a07f-1a1d-48d6-b545-8016467dd9dc",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1136,
+            "y": 62
+          },
+          "nodeIndex": "products",
+          "nodeLineageTag": "199fb329-1603-4604-8882-1c082a258163",
+          "size": {
+            "height": 176,
             "width": 234
           },
           "zIndex": 0
