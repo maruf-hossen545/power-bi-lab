@@ -59,6 +59,19 @@
             "width": 234
           },
           "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 1136,
+            "y": 42
+          },
+          "nodeIndex": "Customer",
+          "nodeLineageTag": "64ff9f7f-17e2-43ac-9110-eea4944daef0",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "All tables",
