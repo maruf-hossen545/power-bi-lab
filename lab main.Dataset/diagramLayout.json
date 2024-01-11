@@ -36,32 +36,6 @@
         },
         {
           "location": {
-            "x": 796,
-            "y": 0
-          },
-          "nodeIndex": "Users",
-          "nodeLineageTag": "5a19b985-9f24-4dd6-9235-c659f31516ab",
-          "size": {
-            "height": 128,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 661,
-            "y": 305
-          },
-          "nodeIndex": "Sales by Region",
-          "nodeLineageTag": "49ee4fc9-507b-4bb4-9642-b0be0a4470e4",
-          "size": {
-            "height": 128,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
             "x": 1080,
             "y": 128.5
           },
@@ -69,6 +43,44 @@
           "nodeLineageTag": "3a2e964c-9b0d-448f-941a-b462b171d795",
           "size": {
             "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 796,
+            "y": 0
+          },
+          "nodeIndex": "Manager",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1364,
+            "y": 16
+          },
+          "nodeIndex": "Merge1",
+          "nodeLineageTag": "711ad1ab-eb5f-4790-b41e-1271f16f0843",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1648,
+            "y": 16
+          },
+          "nodeIndex": "Order by Region",
+          "nodeLineageTag": "104a209d-bfb9-424b-8f90-90d326014d08",
+          "size": {
+            "height": 300,
             "width": 234
           },
           "zIndex": 0
