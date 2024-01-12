@@ -11,64 +11,50 @@
         {
           "location": {
             "x": 0,
-            "y": 36
+            "y": 0
           },
           "nodeIndex": "Orders",
-          "nodeLineageTag": "8d3094ac-4412-4ad3-b451-0de9a897be7b",
+          "nodeLineageTag": "2d8b1eb2-0c5b-460c-9f3c-9437bb139253",
           "size": {
-            "height": 200,
+            "height": 300,
             "width": 234
           },
-          "zIndex": 4
+          "zIndex": 0
         },
         {
           "location": {
-            "x": 372,
-            "y": 0
+            "x": 284,
+            "y": 86
           },
           "nodeIndex": "Returns",
-          "nodeLineageTag": "8052d8a7-ce00-49e2-bca0-254e528abb13",
+          "nodeLineageTag": "84f5455a-3476-40e3-ae2d-4d5b3a317084",
           "size": {
             "height": 128,
             "width": 234
           },
-          "zIndex": 1
+          "zIndex": 0
         },
         {
           "location": {
-            "x": 634,
-            "y": 0
+            "x": 568,
+            "y": 86
           },
-          "nodeIndex": "Sales by Region",
-          "nodeLineageTag": "c3b0f528-0814-4f76-9e3e-7a91acd36610",
+          "nodeIndex": "Managers",
           "size": {
             "height": 128,
             "width": 234
           },
-          "zIndex": 2
+          "zIndex": 0
         },
         {
           "location": {
             "x": 852,
-            "y": 48
+            "y": 0
           },
-          "nodeIndex": "Users",
-          "nodeLineageTag": "2ef47744-b8b0-453b-bc97-5f9853cfa4ed",
+          "nodeIndex": "Orders by Region",
+          "nodeLineageTag": "e78d99ee-2d24-4543-8172-eeedc6a90857",
           "size": {
-            "height": 128,
-            "width": 234
-          },
-          "zIndex": 3
-        },
-        {
-          "location": {
-            "x": 1136,
-            "y": 42
-          },
-          "nodeIndex": "Customer",
-          "nodeLineageTag": "64ff9f7f-17e2-43ac-9110-eea4944daef0",
-          "size": {
-            "height": 152,
+            "height": 300,
             "width": 234
           },
           "zIndex": 0
