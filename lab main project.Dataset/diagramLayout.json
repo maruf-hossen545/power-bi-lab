@@ -46,32 +46,6 @@
             "width": 234
           },
           "zIndex": 3
-        },
-        {
-          "location": {
-            "x": 812,
-            "y": 229
-          },
-          "nodeIndex": "Sales By Region",
-          "nodeLineageTag": "9e8fdc8c-a0d1-4adc-90f1-c64d939b4505",
-          "size": {
-            "height": 128,
-            "width": 234
-          },
-          "zIndex": 4
-        },
-        {
-          "location": {
-            "x": 1096,
-            "y": 28.5
-          },
-          "nodeIndex": "Customer",
-          "nodeLineageTag": "3a418664-df1c-449d-8015-809ee3e278ea",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 0
         }
       ],
       "name": "All tables",
