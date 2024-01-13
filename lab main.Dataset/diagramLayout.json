@@ -61,11 +61,11 @@
         },
         {
           "location": {
-            "x": 1364,
+            "x": 1648,
             "y": 16
           },
-          "nodeIndex": "Merge1",
-          "nodeLineageTag": "711ad1ab-eb5f-4790-b41e-1271f16f0843",
+          "nodeIndex": "Order by Region",
+          "nodeLineageTag": "104a209d-bfb9-424b-8f90-90d326014d08",
           "size": {
             "height": 300,
             "width": 234
@@ -74,11 +74,10 @@
         },
         {
           "location": {
-            "x": 1648,
+            "x": 1364,
             "y": 16
           },
-          "nodeIndex": "Order by Region",
-          "nodeLineageTag": "104a209d-bfb9-424b-8f90-90d326014d08",
+          "nodeIndex": "Sales by region",
           "size": {
             "height": 300,
             "width": 234

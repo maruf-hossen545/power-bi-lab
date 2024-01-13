@@ -12,7 +12,7 @@
       },
       {
         "name": "PBI_QueryOrder",
-        "value": "[\"Manager\",\"Orders\",\"Returns\",\"Customers\",\"Order by Region\",\"Merge1\"]"
+        "value": "[\"Manager\",\"Orders\",\"Returns\",\"Customers\",\"Order by Region\",\"Sales by region\"]"
       },
       {
         "name": "__PBI_TimeIntelligenceEnabled",
@@ -88,7 +88,7 @@
       {
         "name": "353b542c-e707-42d1-8e66-e7495609dddf",
         "fromColumn": "Order Date",
-        "fromTable": "Merge1",
+        "fromTable": "Sales by region",
         "joinOnDateBehavior": "datePartOnly",
         "toColumn": "Date",
         "toTable": "LocalDateTable_12b3beae-3dc1-4e62-955b-e87b22e91bd5"
@@ -96,7 +96,7 @@
       {
         "name": "85f9670a-5829-4ec8-9170-513765f6f29e",
         "fromColumn": "Ship Date",
-        "fromTable": "Merge1",
+        "fromTable": "Sales by region",
         "joinOnDateBehavior": "datePartOnly",
         "toColumn": "Date",
         "toTable": "LocalDateTable_32bc2537-c3bc-48e2-83b5-c1be4893ccc0"
@@ -111,14 +111,14 @@
       {
         "name": "e57f6061-27b3-4150-b530-b3df2dfe852f",
         "fromColumn": "Region",
-        "fromTable": "Merge1",
+        "fromTable": "Sales by region",
         "toColumn": "Region",
         "toTable": "Manager"
       },
       {
         "name": "811fa092-a661-4525-b558-83692b07c700",
         "fromColumn": "Order ID",
-        "fromTable": "Merge1",
+        "fromTable": "Sales by region",
         "toColumn": "Order ID",
         "toTable": "Returns"
       }
@@ -605,6 +605,7 @@
                 "value": "Automatic"
               }
             ],
+            "dataCategory": "StateOrProvince",
             "dataType": "string",
             "lineageTag": "400ad494-c2f2-460a-9e98-631874ab0f78",
             "sourceColumn": "State",
@@ -618,6 +619,7 @@
                 "value": "Automatic"
               }
             ],
+            "dataCategory": "City",
             "dataType": "string",
             "lineageTag": "478812c9-c568-4765-97cf-b288df810ea9",
             "sourceColumn": "City",
@@ -631,6 +633,7 @@
                 "value": "Automatic"
               }
             ],
+            "dataCategory": "PostalCode",
             "dataType": "int64",
             "formatString": "0",
             "lineageTag": "3e38b110-9421-4382-bff4-6ffc46a81929",
@@ -647,10 +650,14 @@
               {
                 "name": "UnderlyingDateTimeDataType",
                 "value": "Date"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isDateTimeCustom\":true}"
               }
             ],
             "dataType": "dateTime",
-            "formatString": "Long Date",
+            "formatString": "mmmm d\\, yyyy",
             "lineageTag": "f4a844bf-44ee-4b0d-8fa1-22cd23775564",
             "sourceColumn": "Order Date",
             "summarizeBy": "none",
@@ -676,10 +683,14 @@
               {
                 "name": "UnderlyingDateTimeDataType",
                 "value": "Date"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isDateTimeCustom\":true}"
               }
             ],
             "dataType": "dateTime",
-            "formatString": "Long Date",
+            "formatString": "mmmm d\\, yyyy",
             "lineageTag": "0900d646-910f-4abf-8423-c3260851372d",
             "sourceColumn": "Ship Date",
             "summarizeBy": "none",
@@ -701,13 +712,10 @@
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
               }
             ],
             "dataType": "double",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
             "lineageTag": "00e2284a-ace0-4a58-81a9-ce43c547eb77",
             "sourceColumn": "Profit",
             "summarizeBy": "sum"
@@ -718,13 +726,10 @@
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
               }
             ],
             "dataType": "double",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
             "lineageTag": "2d5f0ba7-8fc7-4100-bb79-19e5e544460e",
             "sourceColumn": "Sales",
             "summarizeBy": "sum"
@@ -2134,7 +2139,7 @@
         "showAsVariationsOnly": true
       },
       {
-        "name": "Merge1",
+        "name": "Sales by region",
         "annotations": [
           {
             "name": "PBI_NavigationStepName",
@@ -2143,6 +2148,11 @@
           {
             "name": "PBI_ResultType",
             "value": "Table"
+          }
+        ],
+        "changedProperties": [
+          {
+            "property": "Name"
           }
         ],
         "columns": [
@@ -2323,6 +2333,7 @@
                 "value": "Automatic"
               }
             ],
+            "dataCategory": "StateOrProvince",
             "dataType": "string",
             "lineageTag": "9cc035a9-66f4-48ec-96de-8dfa2839b470",
             "sourceColumn": "State",
@@ -2336,6 +2347,7 @@
                 "value": "Automatic"
               }
             ],
+            "dataCategory": "City",
             "dataType": "string",
             "lineageTag": "a70498f2-a99e-46d0-8863-81ac642d73a4",
             "sourceColumn": "City",
@@ -2492,7 +2504,7 @@
         "lineageTag": "711ad1ab-eb5f-4790-b41e-1271f16f0843",
         "partitions": [
           {
-            "name": "Merge1",
+            "name": "Sales by region",
             "mode": "import",
             "source": {
               "expression": [
@@ -2707,7 +2719,7 @@
             "name": "LocalDateTable_12b3beae-3dc1-4e62-955b-e87b22e91bd5",
             "mode": "import",
             "source": {
-              "expression": "Calendar(Date(Year(MIN('Merge1'[Order Date])), 1, 1), Date(Year(MAX('Merge1'[Order Date])), 12, 31))",
+              "expression": "Calendar(Date(Year(MIN('Sales by region'[Order Date])), 1, 1), Date(Year(MAX('Sales by region'[Order Date])), 12, 31))",
               "type": "calculated"
             }
           }
@@ -2913,7 +2925,7 @@
             "name": "LocalDateTable_32bc2537-c3bc-48e2-83b5-c1be4893ccc0",
             "mode": "import",
             "source": {
-              "expression": "Calendar(Date(Year(MIN('Merge1'[Ship Date])), 1, 1), Date(Year(MAX('Merge1'[Ship Date])), 12, 31))",
+              "expression": "Calendar(Date(Year(MIN('Sales by region'[Ship Date])), 1, 1), Date(Year(MAX('Sales by region'[Ship Date])), 12, 31))",
               "type": "calculated"
             }
           }
