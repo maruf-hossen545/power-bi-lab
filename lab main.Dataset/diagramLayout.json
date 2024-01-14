@@ -36,32 +36,6 @@
         },
         {
           "location": {
-            "x": 568,
-            "y": 86
-          },
-          "nodeIndex": "Users",
-          "nodeLineageTag": "95bdd365-5791-409e-a59c-da2e0034dc69",
-          "size": {
-            "height": 128,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 427.99998474121094,
-            "y": 356
-          },
-          "nodeIndex": "sales by region",
-          "nodeLineageTag": "56282cff-bb97-4ee4-887a-c9d7662f1267",
-          "size": {
-            "height": 128,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
             "x": 852,
             "y": 154
           },

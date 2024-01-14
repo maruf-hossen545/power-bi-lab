@@ -12,7 +12,7 @@
       },
       {
         "name": "PBI_QueryOrder",
-        "value": "[\"Orders\",\"Returns\",\"Users\",\"sales by region\",\"Customer\"]"
+        "value": "[\"Orders\",\"Returns\",\"Customer\"]"
       },
       {
         "name": "__PBI_TimeIntelligenceEnabled",
@@ -54,27 +54,6 @@
         "joinOnDateBehavior": "datePartOnly",
         "toColumn": "Date",
         "toTable": "LocalDateTable_0f914e40-9582-4df2-b4ce-f163e3008b92"
-      },
-      {
-        "name": "59cabad9-7961-4fe3-89b2-2dafcc05c520",
-        "fromColumn": "Region",
-        "fromTable": "Orders",
-        "toColumn": "Region",
-        "toTable": "Users"
-      },
-      {
-        "name": "2b6a738e-a023-4ad1-89cd-773224cacfa6",
-        "fromColumn": "Region",
-        "fromTable": "sales by region",
-        "toColumn": "Region",
-        "toTable": "Users"
-      },
-      {
-        "name": "43307c30-d958-4ec0-9e38-915ab3c380ad",
-        "fromColumn": "Region",
-        "fromTable": "Customer",
-        "toColumn": "Region",
-        "toTable": "Users"
       }
     ],
     "sourceQueryCulture": "en-US",
@@ -1162,138 +1141,8 @@
         ]
       },
       {
-        "name": "Users",
-        "annotations": [
-          {
-            "name": "PBI_ResultType",
-            "value": "Table"
-          },
-          {
-            "name": "PBI_NavigationStepName",
-            "value": "Navigation"
-          }
-        ],
-        "columns": [
-          {
-            "name": "Region",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "8a2bca39-be71-446c-8641-29f341821668",
-            "sourceColumn": "Region",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "Manager",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "8affe37b-596a-4764-b26f-f1d6aed82a2e",
-            "sourceColumn": "Manager",
-            "summarizeBy": "none"
-          }
-        ],
-        "lineageTag": "95bdd365-5791-409e-a59c-da2e0034dc69",
-        "partitions": [
-          {
-            "name": "Users",
-            "mode": "import",
-            "source": {
-              "expression": [
-                "let",
-                "    Source = Excel.Workbook(File.Contents(\"D:\\Power BI Exercise Files (1)\\Sample Superstore.xlsx\"), null, true),",
-                "    Users_Sheet = Source{[Item=\"Users\",Kind=\"Sheet\"]}[Data],",
-                "    #\"Changed Type\" = Table.TransformColumnTypes(Users_Sheet,{{\"Column1\", type text}, {\"Column2\", type text}}),",
-                "    #\"Promoted Headers\" = Table.PromoteHeaders(#\"Changed Type\", [PromoteAllScalars=true]),",
-                "    #\"Changed Type1\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"Region\", type text}, {\"Manager\", type text}})",
-                "in",
-                "    #\"Changed Type1\""
-              ],
-              "type": "m"
-            }
-          }
-        ]
-      },
-      {
-        "name": "sales by region",
-        "annotations": [
-          {
-            "name": "PBI_NavigationStepName",
-            "value": "Navigation"
-          },
-          {
-            "name": "PBI_ResultType",
-            "value": "Table"
-          }
-        ],
-        "columns": [
-          {
-            "name": "Region",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "5948663f-0588-4847-8bef-efc8d4ef1976",
-            "sourceColumn": "Region",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "Sales",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
-              }
-            ],
-            "dataType": "double",
-            "lineageTag": "a35c6ca0-488d-4556-804f-2ac1eeb9d798",
-            "sourceColumn": "Sales",
-            "summarizeBy": "sum"
-          }
-        ],
-        "lineageTag": "56282cff-bb97-4ee4-887a-c9d7662f1267",
-        "partitions": [
-          {
-            "name": "sales by region",
-            "mode": "import",
-            "source": {
-              "expression": [
-                "let",
-                "    Source = Excel.Workbook(File.Contents(\"D:\\Power BI Exercise Files (1)\\Sample Superstore.xlsx\"), null, true),",
-                "    Orders_Sheet = Source{[Item=\"Orders\",Kind=\"Sheet\"]}[Data],",
-                "    #\"Promoted Headers\" = Table.PromoteHeaders(Orders_Sheet, [PromoteAllScalars=true]),",
-                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"Row ID\", Int64.Type}, {\"Order Priority\", type text}, {\"Discount\", type number}, {\"Unit Price\", type number}, {\"Shipping Cost\", type number}, {\"Customer ID\", Int64.Type}, {\"Customer Name\", type text}, {\"Ship Mode\", type text}, {\"Customer Segment\", type text}, {\"Product Category\", type text}, {\"Product Sub-Category\", type text}, {\"Product Container\", type text}, {\"Product Name\", type text}, {\"Product Base Margin\", type number}, {\"Region\", type text}, {\"State or Province\", type text}, {\"City\", type text}, {\"Postal Code\", Int64.Type}, {\"Order Date\", type date}, {\"Ship Date\", type date}, {\"Profit\", type number}, {\"Quantity ordered new\", Int64.Type}, {\"Sales\", type number}, {\"Order ID\", Int64.Type}}),",
-                "    #\"Removed Other Columns\" = Table.SelectColumns(#\"Changed Type\",{\"Region\", \"Sales\"})",
-                "in",
-                "    #\"Removed Other Columns\""
-              ],
-              "type": "m"
-            }
-          }
-        ]
-      },
-      {
         "name": "Customer",
         "annotations": [
-          {
-            "name": "PBI_NavigationStepName",
-            "value": "Navigation"
-          },
           {
             "name": "PBI_ResultType",
             "value": "Table"
