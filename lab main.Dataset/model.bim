@@ -312,13 +312,10 @@
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
               }
             ],
             "dataType": "double",
+            "formatString": "0%;-0%;0%",
             "lineageTag": "c450d986-fb7b-4955-b924-3c6ca08ea0c6",
             "sourceColumn": "Discount",
             "summarizeBy": "sum"
@@ -329,13 +326,10 @@
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
               }
             ],
             "dataType": "double",
+            "formatString": "\\$#,0.###############;(\\$#,0.###############);\\$#,0.###############",
             "lineageTag": "1be4e0a5-16df-4298-94b7-deb301d451dd",
             "sourceColumn": "Unit Price",
             "summarizeBy": "sum"
@@ -483,6 +477,7 @@
                 "value": "Automatic"
               }
             ],
+            "dataCategory": "StateOrProvince",
             "dataType": "string",
             "lineageTag": "29c4263e-a436-48df-8f55-0d76b1ea8983",
             "sourceColumn": "State",
@@ -496,6 +491,7 @@
                 "value": "Automatic"
               }
             ],
+            "dataCategory": "City",
             "dataType": "string",
             "lineageTag": "a8ce5580-23a0-42ed-a812-38591fd3e88e",
             "sourceColumn": "City",
@@ -525,10 +521,14 @@
               {
                 "name": "UnderlyingDateTimeDataType",
                 "value": "Date"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isDateTimeCustom\":true}"
               }
             ],
             "dataType": "dateTime",
-            "formatString": "Long Date",
+            "formatString": "mmmm d\\, yyyy",
             "lineageTag": "42efa73d-045d-4f09-a7e7-d7f6c6470640",
             "sourceColumn": "Order Date",
             "summarizeBy": "none",
