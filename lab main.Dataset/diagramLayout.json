@@ -45,6 +45,19 @@
             "width": 234
           },
           "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 852,
+            "y": 0
+          },
+          "nodeIndex": "orders by region",
+          "nodeLineageTag": "9c5da9cc-3900-4d07-ad3a-e1187bf88fa1",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "All tables",
