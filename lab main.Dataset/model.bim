@@ -2134,7 +2134,7 @@
         ],
         "columns": [
           {
-            "name": "Index",
+            "name": "Produck id",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
@@ -2144,7 +2144,7 @@
             "dataType": "int64",
             "formatString": "0",
             "lineageTag": "3492aa0c-cfa2-480f-a072-92a3e73f8f42",
-            "sourceColumn": "Index",
+            "sourceColumn": "Produck id",
             "summarizeBy": "sum"
           },
           {
@@ -2219,9 +2219,10 @@
                 "    #\"Removed Other Columns1\" = Table.SelectColumns(#\"Renamed Columns\",{\"Product Category\", \"Product Sub-Category\", \"Product Container\", \"Product Name\"}),",
                 "    #\"Reordered Columns\" = Table.ReorderColumns(#\"Removed Other Columns1\",{\"Product Name\", \"Product Category\", \"Product Sub-Category\", \"Product Container\"}),",
                 "    #\"Added Index\" = Table.AddIndexColumn(#\"Reordered Columns\", \"Index\", 1, 1, Int64.Type),",
-                "    #\"Reordered Columns1\" = Table.ReorderColumns(#\"Added Index\",{\"Index\", \"Product Name\", \"Product Category\", \"Product Sub-Category\", \"Product Container\"})",
+                "    #\"Reordered Columns1\" = Table.ReorderColumns(#\"Added Index\",{\"Index\", \"Product Name\", \"Product Category\", \"Product Sub-Category\", \"Product Container\"}),",
+                "    #\"Renamed Columns1\" = Table.RenameColumns(#\"Reordered Columns1\",{{\"Index\", \"Produck id\"}})",
                 "in",
-                "    #\"Reordered Columns1\""
+                "    #\"Renamed Columns1\""
               ],
               "type": "m"
             }
