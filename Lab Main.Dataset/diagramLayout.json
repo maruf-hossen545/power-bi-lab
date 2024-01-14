@@ -19,37 +19,38 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 1
         },
         {
           "location": {
-            "x": 284,
-            "y": 86
+            "x": 336,
+            "y": 6
           },
           "nodeIndex": "Returns",
           "nodeLineageTag": "84f5455a-3476-40e3-ae2d-4d5b3a317084",
           "size": {
-            "height": 128,
+            "height": 124,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 5
         },
         {
           "location": {
-            "x": 568,
-            "y": 86
+            "x": 639,
+            "y": 77
           },
           "nodeIndex": "Managers",
+          "nodeLineageTag": "9b4a9cef-418f-49df-bae9-2df81e476566",
           "size": {
             "height": 128,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 2
         },
         {
           "location": {
-            "x": 852,
-            "y": 0
+            "x": 225,
+            "y": 243
           },
           "nodeIndex": "Orders by Region",
           "nodeLineageTag": "e78d99ee-2d24-4543-8172-eeedc6a90857",
@@ -57,11 +58,24 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 485.33332824707031,
+            "y": 274
+          },
+          "nodeIndex": "Dimproducts",
+          "nodeLineageTag": "4d57e198-ddf3-4cf2-9456-e2bf45f83167",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 4
         }
       ],
       "name": "All tables",
-      "zoomValue": 100,
+      "zoomValue": 97.333333333333343,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,
