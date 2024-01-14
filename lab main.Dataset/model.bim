@@ -276,36 +276,13 @@
           {
             "name": "PBI_ResultType",
             "value": "Table"
+          },
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
           }
         ],
         "columns": [
-          {
-            "name": "Row ID",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "e0940875-3546-4f61-9b4b-7debb701647b",
-            "sourceColumn": "Row ID",
-            "summarizeBy": "count"
-          },
-          {
-            "name": "Order Priority",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "dd171b07-130f-4a99-a61f-8174856f6440",
-            "sourceColumn": "Order Priority",
-            "summarizeBy": "none"
-          },
           {
             "name": "Discount",
             "annotations": [
@@ -463,23 +440,6 @@
             "summarizeBy": "none"
           },
           {
-            "name": "Product Base Margin",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
-              }
-            ],
-            "dataType": "double",
-            "lineageTag": "6adf060e-ac4e-4c73-a102-b10a3b6e2e07",
-            "sourceColumn": "Product Base Margin",
-            "summarizeBy": "sum"
-          },
-          {
             "name": "Region",
             "annotations": [
               {
@@ -493,7 +453,7 @@
             "summarizeBy": "none"
           },
           {
-            "name": "State or Province",
+            "name": "State",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
@@ -502,7 +462,7 @@
             ],
             "dataType": "string",
             "lineageTag": "29c4263e-a436-48df-8f55-0d76b1ea8983",
-            "sourceColumn": "State or Province",
+            "sourceColumn": "State",
             "summarizeBy": "none"
           },
           {
@@ -608,20 +568,6 @@
             "summarizeBy": "sum"
           },
           {
-            "name": "Quantity ordered new",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "70015dc0-3e6c-4433-bd4b-586b12a02c29",
-            "sourceColumn": "Quantity ordered new",
-            "summarizeBy": "sum"
-          },
-          {
             "name": "Sales",
             "annotations": [
               {
@@ -664,9 +610,13 @@
                 "    Source = Excel.Workbook(File.Contents(\"C:\\Users\\USER\\Downloads\\Power BI Exercise Files\\Sample Superstore.xlsx\"), null, true),",
                 "    Orders_Sheet = Source{[Item=\"Orders\",Kind=\"Sheet\"]}[Data],",
                 "    #\"Promoted Headers\" = Table.PromoteHeaders(Orders_Sheet, [PromoteAllScalars=true]),",
-                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"Row ID\", Int64.Type}, {\"Order Priority\", type text}, {\"Discount\", type number}, {\"Unit Price\", type number}, {\"Shipping Cost\", type number}, {\"Customer ID\", Int64.Type}, {\"Customer Name\", type text}, {\"Ship Mode\", type text}, {\"Customer Segment\", type text}, {\"Product Category\", type text}, {\"Product Sub-Category\", type text}, {\"Product Container\", type text}, {\"Product Name\", type text}, {\"Product Base Margin\", type number}, {\"Region\", type text}, {\"State or Province\", type text}, {\"City\", type text}, {\"Postal Code\", Int64.Type}, {\"Order Date\", type date}, {\"Ship Date\", type date}, {\"Profit\", type number}, {\"Quantity ordered new\", Int64.Type}, {\"Sales\", type number}, {\"Order ID\", Int64.Type}})",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"Row ID\", Int64.Type}, {\"Order Priority\", type text}, {\"Discount\", type number}, {\"Unit Price\", type number}, {\"Shipping Cost\", type number}, {\"Customer ID\", Int64.Type}, {\"Customer Name\", type text}, {\"Ship Mode\", type text}, {\"Customer Segment\", type text}, {\"Product Category\", type text}, {\"Product Sub-Category\", type text}, {\"Product Container\", type text}, {\"Product Name\", type text}, {\"Product Base Margin\", type number}, {\"Region\", type text}, {\"State or Province\", type text}, {\"City\", type text}, {\"Postal Code\", Int64.Type}, {\"Order Date\", type date}, {\"Ship Date\", type date}, {\"Profit\", type number}, {\"Quantity ordered new\", Int64.Type}, {\"Sales\", type number}, {\"Order ID\", Int64.Type}}),",
+                "    #\"Removed Other Columns\" = Table.SelectColumns(#\"Changed Type\",{\"Discount\", \"Unit Price\", \"Shipping Cost\", \"Customer ID\", \"Customer Name\", \"Ship Mode\", \"Customer Segment\", \"Product Category\", \"Product Sub-Category\", \"Product Container\", \"Product Name\", \"Region\", \"State or Province\", \"City\", \"Postal Code\", \"Order Date\", \"Ship Date\", \"Profit\", \"Sales\", \"Order ID\"}),",
+                "    #\"Filtered Rows\" = Table.SelectRows(#\"Removed Other Columns\", each ([State or Province] = \"Arizona\" or [State or Province] = \"California\" or [State or Province] = \"Florida\" or [State or Province] = \"New Jersey\" or [State or Province] = \"New York\")),",
+                "    #\"Sorted Rows\" = Table.Sort(#\"Filtered Rows\",{{\"State or Province\", Order.Ascending}}),",
+                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Sorted Rows\",{{\"State or Province\", \"State\"}})",
                 "in",
-                "    #\"Changed Type\""
+                "    #\"Renamed Columns\""
               ],
               "type": "m"
             }
