@@ -4,7 +4,7 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 0,
+        "x": 490.90909090909093,
         "y": 0
       },
       "nodes": [
@@ -16,69 +16,68 @@
           "nodeIndex": "Orders",
           "nodeLineageTag": "e09e78ca-1998-4e9f-b326-338c7d6bba94",
           "size": {
-            "height": 300,
+            "height": 434.09090909090912,
             "width": 234
           },
           "zIndex": 0
         },
         {
           "location": {
-            "x": 284,
-            "y": 86
+            "x": 267.40909090909093,
+            "y": 9.09090909090909
           },
           "nodeIndex": "Returns",
           "nodeLineageTag": "22b39a70-4d70-49e7-8184-cc99ed28329b",
           "size": {
-            "height": 128,
+            "height": 124,
             "width": 234
           },
           "zIndex": 0
         },
         {
           "location": {
-            "x": 568,
-            "y": 86
+            "x": 520,
+            "y": 21
           },
           "nodeIndex": "Manegers",
+          "nodeLineageTag": "85299147-7ba8-4fd5-82c5-0356e3242a65",
           "size": {
-            "height": 128,
+            "height": 159.81818181818181,
             "width": 234
           },
           "zIndex": 0
         },
         {
           "location": {
-            "x": 852,
+            "x": 969.40909090909088,
             "y": 0
           },
           "nodeIndex": "orders by region",
           "nodeLineageTag": "9c5da9cc-3900-4d07-ad3a-e1187bf88fa1",
           "size": {
-            "height": 300,
+            "height": 186.36363636363637,
             "width": 234
           },
           "zIndex": 0
         },
         {
           "location": {
-            "x": 1136,
-            "y": 26
+            "x": 708.72727272727275,
+            "y": 203.81818181818181
           },
-          "nodeIndex": "Dm Customer",
-          "nodeLineageTag": "d3f48b64-ca3b-4137-8383-9d9129d2b5bf",
+          "nodeIndex": "Dim Customer",
           "size": {
-            "height": 248,
+            "height": 251.40909090909093,
             "width": 234
           },
           "zIndex": 0
         },
         {
           "location": {
-            "x": 1420,
-            "y": 50
+            "x": 960.59090909090878,
+            "y": 214.09090909090898
           },
-          "nodeIndex": "Dm Product",
-          "nodeLineageTag": "4cee3298-784b-49ae-b3d2-602a05f21c5a",
+          "nodeIndex": "Dim Product",
           "size": {
             "height": 200,
             "width": 234
@@ -87,7 +86,7 @@
         }
       ],
       "name": "All tables",
-      "zoomValue": 100,
+      "zoomValue": 88,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,

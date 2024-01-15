@@ -12,7 +12,7 @@
       },
       {
         "name": "PBI_QueryOrder",
-        "value": "[\"Orders\",\"Returns\",\"Manegers\",\"orders by region\",\"Dm Customer\",\"Dm Product\"]"
+        "value": "[\"Orders\",\"Returns\",\"Manegers\",\"orders by region\",\"Dim Customer\",\"Dim Product\"]"
       },
       {
         "name": "__PBI_TimeIntelligenceEnabled",
@@ -88,9 +88,16 @@
       {
         "name": "5d55ecf4-8daf-4693-9787-bbcb80946526",
         "fromColumn": "Region",
-        "fromTable": "Dm Customer",
+        "fromTable": "Dim Customer",
         "toColumn": "Region",
         "toTable": "Manegers"
+      },
+      {
+        "name": "217f691b-1b35-4d4f-aa6d-2556901d686a",
+        "fromColumn": "Order ID",
+        "fromTable": "Orders",
+        "toColumn": "Order ID",
+        "toTable": "Returns"
       }
     ],
     "sourceQueryCulture": "en-US",
@@ -626,7 +633,45 @@
             "formatString": "0",
             "lineageTag": "5e97ddf5-d14a-4f34-b136-8a4e1e710f86",
             "sourceColumn": "Order ID",
-            "summarizeBy": "count"
+            "summarizeBy": "none"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Region Hierarchy",
+            "levels": [
+              {
+                "name": "Region",
+                "column": "Region",
+                "lineageTag": "b1b6d241-a2e3-42a7-b3d3-bc68abb7f841",
+                "ordinal": 0
+              },
+              {
+                "name": "Sales",
+                "column": "Sales",
+                "lineageTag": "04a1900e-a962-4aaa-b0d4-e595b1269232",
+                "ordinal": 1
+              },
+              {
+                "name": "State",
+                "column": "State",
+                "lineageTag": "c24eb7c3-70e7-4ba2-9576-3f58b83a9bea",
+                "ordinal": 2
+              },
+              {
+                "name": "City",
+                "column": "City",
+                "lineageTag": "97475ba1-f097-4ac7-833a-fe82a1e9968f",
+                "ordinal": 3
+              },
+              {
+                "name": "Postal Code",
+                "column": "Postal Code",
+                "lineageTag": "f628e0ae-274d-4858-b1a4-909533364b7c",
+                "ordinal": 4
+              }
+            ],
+            "lineageTag": "48d8afc3-8eaf-44dc-91d1-bc73d6d03ab7"
           }
         ],
         "lineageTag": "e09e78ca-1998-4e9f-b326-338c7d6bba94",
@@ -1076,7 +1121,7 @@
             "formatString": "0",
             "lineageTag": "617dd3fa-6185-4f77-913e-edc36b7f8411",
             "sourceColumn": "Order ID",
-            "summarizeBy": "count"
+            "summarizeBy": "none"
           },
           {
             "name": "Status",
@@ -1204,6 +1249,11 @@
             "value": "Table"
           }
         ],
+        "changedProperties": [
+          {
+            "property": "IsHidden"
+          }
+        ],
         "columns": [
           {
             "name": "Discount",
@@ -1217,7 +1267,13 @@
                 "value": "{\"isGeneralNumber\":true}"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "double",
+            "isHidden": true,
             "lineageTag": "719f2bdf-c493-484c-8e1b-1e130264ce38",
             "sourceColumn": "Discount",
             "summarizeBy": "sum"
@@ -1234,7 +1290,13 @@
                 "value": "{\"isGeneralNumber\":true}"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "double",
+            "isHidden": true,
             "lineageTag": "bbc069d6-6c06-41a0-97cb-c121e18b3bd5",
             "sourceColumn": "Unit Price",
             "summarizeBy": "sum"
@@ -1251,7 +1313,13 @@
                 "value": "{\"isGeneralNumber\":true}"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "double",
+            "isHidden": true,
             "lineageTag": "b07c8034-033d-4a96-9620-506e68c03773",
             "sourceColumn": "Shipping Cost",
             "summarizeBy": "sum"
@@ -1264,8 +1332,14 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "int64",
             "formatString": "0",
+            "isHidden": true,
             "lineageTag": "e1f494ca-a6e7-4b56-ae1d-c3956264cbb4",
             "sourceColumn": "Customer ID",
             "summarizeBy": "count"
@@ -1278,7 +1352,13 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "string",
+            "isHidden": true,
             "lineageTag": "acfc9e04-2710-4825-babb-4716653e5ff5",
             "sourceColumn": "Customer Name",
             "summarizeBy": "none"
@@ -1291,7 +1371,13 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "string",
+            "isHidden": true,
             "lineageTag": "c869b2fa-7f61-4ad0-97ce-2c24999c2599",
             "sourceColumn": "Ship Mode",
             "summarizeBy": "none"
@@ -1304,7 +1390,13 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "string",
+            "isHidden": true,
             "lineageTag": "3afaa0a2-abd5-48ee-842f-47d6ab2b58cd",
             "sourceColumn": "Customer Segment",
             "summarizeBy": "none"
@@ -1317,7 +1409,13 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "string",
+            "isHidden": true,
             "lineageTag": "43fd9416-83d1-4f09-9186-ff23fa15084d",
             "sourceColumn": "Product Category",
             "summarizeBy": "none"
@@ -1330,7 +1428,13 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "string",
+            "isHidden": true,
             "lineageTag": "f10122c6-603f-4305-9d99-b1a24462214a",
             "sourceColumn": "Product Sub-Category",
             "summarizeBy": "none"
@@ -1343,7 +1447,13 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "string",
+            "isHidden": true,
             "lineageTag": "738a8245-e838-4983-ab89-3231d9d9b6f3",
             "sourceColumn": "Product Container",
             "summarizeBy": "none"
@@ -1356,7 +1466,13 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "string",
+            "isHidden": true,
             "lineageTag": "0ffb27d3-3cc0-4d67-9f5b-a88b7ccea61a",
             "sourceColumn": "Product Name",
             "summarizeBy": "none"
@@ -1369,7 +1485,13 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "string",
+            "isHidden": true,
             "lineageTag": "3b852714-569e-464e-87a7-5aa575f0b99f",
             "sourceColumn": "Region",
             "summarizeBy": "none"
@@ -1382,7 +1504,13 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "string",
+            "isHidden": true,
             "lineageTag": "4ca19d90-5fb1-4cab-ba20-2a19ef8872c1",
             "sourceColumn": "State",
             "summarizeBy": "none"
@@ -1395,7 +1523,13 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "string",
+            "isHidden": true,
             "lineageTag": "f6c8826a-ab40-4b27-a869-82b4415d96ea",
             "sourceColumn": "City",
             "summarizeBy": "none"
@@ -1408,8 +1542,14 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "int64",
             "formatString": "0",
+            "isHidden": true,
             "lineageTag": "09160869-4c2e-4459-b400-b0756ad9cd08",
             "sourceColumn": "Postal Code",
             "summarizeBy": "count"
@@ -1426,8 +1566,14 @@
                 "value": "Date"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "dateTime",
             "formatString": "Long Date",
+            "isHidden": true,
             "lineageTag": "76d03832-c97e-4f5a-abfc-6414d3648156",
             "sourceColumn": "Order Date",
             "summarizeBy": "none",
@@ -1455,8 +1601,14 @@
                 "value": "Date"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "dateTime",
             "formatString": "Long Date",
+            "isHidden": true,
             "lineageTag": "a41b265c-269e-44dd-b62d-abe48f17494b",
             "sourceColumn": "Ship Date",
             "summarizeBy": "none",
@@ -1484,7 +1636,13 @@
                 "value": "{\"isGeneralNumber\":true}"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "double",
+            "isHidden": true,
             "lineageTag": "2ef28fe6-2387-4554-afb9-d02f194ad951",
             "sourceColumn": "Profit",
             "summarizeBy": "sum"
@@ -1501,7 +1659,13 @@
                 "value": "{\"isGeneralNumber\":true}"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "double",
+            "isHidden": true,
             "lineageTag": "b1a0f5fb-c232-4191-9d4c-d4be6bdddb87",
             "sourceColumn": "Sales",
             "summarizeBy": "sum"
@@ -1514,8 +1678,14 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "int64",
             "formatString": "0",
+            "isHidden": true,
             "lineageTag": "7503d5a3-888d-400b-b859-cc8ac504aea7",
             "sourceColumn": "Order ID",
             "summarizeBy": "count"
@@ -1528,7 +1698,13 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "string",
+            "isHidden": true,
             "lineageTag": "07831141-ccbf-46f4-a300-353d66debf5e",
             "sourceColumn": "Manegers.Region",
             "summarizeBy": "none"
@@ -1541,7 +1717,13 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "string",
+            "isHidden": true,
             "lineageTag": "141234fa-d5a3-4d79-a862-d3181bc0cb59",
             "sourceColumn": "Manegers.Manager first",
             "summarizeBy": "none"
@@ -1554,12 +1736,19 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "string",
+            "isHidden": true,
             "lineageTag": "934573cd-084b-4b98-a4c6-5e8c689a1208",
             "sourceColumn": "Manegers.Manager last",
             "summarizeBy": "none"
           }
         ],
+        "isHidden": true,
         "lineageTag": "9c5da9cc-3900-4d07-ad3a-e1187bf88fa1",
         "partitions": [
           {
@@ -1984,7 +2173,7 @@
         "showAsVariationsOnly": true
       },
       {
-        "name": "Dm Customer",
+        "name": "Dim Customer",
         "annotations": [
           {
             "name": "PBI_NavigationStepName",
@@ -1993,6 +2182,14 @@
           {
             "name": "PBI_ResultType",
             "value": "Table"
+          }
+        ],
+        "changedProperties": [
+          {
+            "property": "Name"
+          },
+          {
+            "property": "IsHidden"
           }
         ],
         "columns": [
@@ -2004,8 +2201,14 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "int64",
             "formatString": "0",
+            "isHidden": true,
             "lineageTag": "3c45f20c-39f3-4ce6-8957-c155d49d575d",
             "sourceColumn": "Customer ID",
             "summarizeBy": "count"
@@ -2018,7 +2221,13 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "string",
+            "isHidden": true,
             "lineageTag": "d2d747b5-cc0a-4f49-8244-f88573ddfaf9",
             "sourceColumn": "Customer Name",
             "summarizeBy": "none"
@@ -2031,7 +2240,13 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "string",
+            "isHidden": true,
             "lineageTag": "25dfc341-5e33-4fa1-ae27-4c109cb8c2c6",
             "sourceColumn": "Customer Segment",
             "summarizeBy": "none"
@@ -2044,7 +2259,13 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "string",
+            "isHidden": true,
             "lineageTag": "9dc09794-10fc-4f64-8d06-228dfb8e3592",
             "sourceColumn": "Region",
             "summarizeBy": "none"
@@ -2057,7 +2278,13 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "string",
+            "isHidden": true,
             "lineageTag": "bd2ceda0-5d46-48e6-a5ab-706642de6aa3",
             "sourceColumn": "City",
             "summarizeBy": "none"
@@ -2070,8 +2297,14 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "int64",
             "formatString": "0",
+            "isHidden": true,
             "lineageTag": "f2e52d03-c6c0-4c94-b7b7-caaa43ecba7d",
             "sourceColumn": "Postal Code",
             "summarizeBy": "count"
@@ -2088,16 +2321,23 @@
                 "value": "{\"isGeneralNumber\":true}"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "double",
+            "isHidden": true,
             "lineageTag": "467eb34b-6372-45c2-8668-4dd40833d87c",
             "sourceColumn": "Discount",
             "summarizeBy": "sum"
           }
         ],
+        "isHidden": true,
         "lineageTag": "d3f48b64-ca3b-4137-8383-9d9129d2b5bf",
         "partitions": [
           {
-            "name": "Dm Customer",
+            "name": "Dim Customer",
             "mode": "import",
             "source": {
               "expression": [
@@ -2121,7 +2361,7 @@
         ]
       },
       {
-        "name": "Dm Product",
+        "name": "Dim Product",
         "annotations": [
           {
             "name": "PBI_NavigationStepName",
@@ -2130,6 +2370,14 @@
           {
             "name": "PBI_ResultType",
             "value": "Table"
+          }
+        ],
+        "changedProperties": [
+          {
+            "property": "Name"
+          },
+          {
+            "property": "IsHidden"
           }
         ],
         "columns": [
@@ -2141,8 +2389,14 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "int64",
             "formatString": "0",
+            "isHidden": true,
             "lineageTag": "3492aa0c-cfa2-480f-a072-92a3e73f8f42",
             "sourceColumn": "Produck id",
             "summarizeBy": "sum"
@@ -2155,7 +2409,13 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "string",
+            "isHidden": true,
             "lineageTag": "b06ef52a-0f36-40b9-99ee-b52154e29bd4",
             "sourceColumn": "Product Name",
             "summarizeBy": "none"
@@ -2168,7 +2428,13 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "string",
+            "isHidden": true,
             "lineageTag": "7910c2b7-cc9b-4a1c-8c6c-1c959ca2e5e0",
             "sourceColumn": "Product Category",
             "summarizeBy": "none"
@@ -2181,7 +2447,13 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "string",
+            "isHidden": true,
             "lineageTag": "e3e9afa2-e31d-402d-a460-3c64a8748936",
             "sourceColumn": "Product Sub-Category",
             "summarizeBy": "none"
@@ -2194,16 +2466,23 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "string",
+            "isHidden": true,
             "lineageTag": "74fb7663-967c-4232-a695-7250850a179a",
             "sourceColumn": "Product Container",
             "summarizeBy": "none"
           }
         ],
+        "isHidden": true,
         "lineageTag": "4cee3298-784b-49ae-b3d2-602a05f21c5a",
         "partitions": [
           {
-            "name": "Dm Product",
+            "name": "Dim Product",
             "mode": "import",
             "source": {
               "expression": [
