@@ -39,10 +39,22 @@
             "x": 568,
             "y": 86
           },
-          "nodeIndex": "Users",
-          "nodeLineageTag": "61216802-0039-49cd-927b-f20fa05d8d0e",
+          "nodeIndex": "Managers",
           "size": {
             "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 852,
+            "y": 0
+          },
+          "nodeIndex": "Sales by Profit",
+          "nodeLineageTag": "7bc06f2e-dbe0-418c-845b-c01ad46581ff",
+          "size": {
+            "height": 300,
             "width": 234
           },
           "zIndex": 0
