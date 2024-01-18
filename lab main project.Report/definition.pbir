@@ -1,9 +1,0 @@
-{
-  "version": "1.0",
-  "datasetReference": {
-    "byPath": {
-      "path": "../lab main project.Dataset"
-    },
-    "byConnection": null
-  }
-}
