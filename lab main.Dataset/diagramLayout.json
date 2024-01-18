@@ -1,0 +1,111 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "Orders",
+          "nodeLineageTag": "fec2da3c-147c-4938-b563-e0fcf2df0f58",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 354,
+            "y": 204
+          },
+          "nodeIndex": "Returns",
+          "nodeLineageTag": "00b3e908-3786-4f98-83e6-9df619211f53",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1080,
+            "y": 128.5
+          },
+          "nodeIndex": "Customers",
+          "nodeLineageTag": "3a2e964c-9b0d-448f-941a-b462b171d795",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 796,
+            "y": 0
+          },
+          "nodeIndex": "Manager",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1648,
+            "y": 16
+          },
+          "nodeIndex": "Order by Region",
+          "nodeLineageTag": "104a209d-bfb9-424b-8f90-90d326014d08",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1364,
+            "y": 16
+          },
+          "nodeIndex": "Sales by region",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1932,
+            "y": 16
+          },
+          "nodeIndex": "Returned Orders",
+          "nodeLineageTag": "e8fe1199-a9c3-4109-bc56-8ee04965263f",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}
