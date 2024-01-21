@@ -25,7 +25,17 @@
       "filters": "[]",
       "height": 720.00,
       "name": "ReportSection",
-      "visualContainers": [],
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"f4046fae87bf4b047f4a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":100.1582504786731,\"y\":132.28448176428523,\"z\":0,\"width\":621.7370642921405,\"height\":442.20812475489635,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"donutChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Sum(Orders.Sales)\"},{\"queryRef\":\"Sum(Orders.Unit Price)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"o\",\"Entity\":\"Orders\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Sales\"}},\"Function\":0},\"Name\":\"Sum(Orders.Sales)\",\"NativeReferenceName\":\"Sum of Sales\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Unit Price\"}},\"Function\":0},\"Name\":\"Sum(Orders.Unit Price)\",\"NativeReferenceName\":\"Sum of Unit Price\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Sales\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 442.21,
+          "width": 621.74,
+          "x": 100.16,
+          "y": 132.28,
+          "z": 0.00
+        }
+      ],
       "width": 1280.00
     }
   ]
