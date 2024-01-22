@@ -5,6 +5,5 @@
   "typeDetectionEnabled": true,
   "relationshipImportEnabled": true,
   "relationshipRefreshEnabled": true,
-  "runBackgroundAnalysis": true,
   "shouldNotifyUserOfNameConflictResolution": true
 }
