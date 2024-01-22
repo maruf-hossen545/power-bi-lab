@@ -25,7 +25,17 @@
       "filters": "[]",
       "height": 720.00,
       "name": "ReportSection",
-      "visualContainers": [],
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"b2f754b444c6213f9c34\",\"layouts\":[{\"id\":0,\"position\":{\"x\":333.5449735449736,\"y\":49.1005291005291,\"z\":0,\"width\":716.1904761904763,\"height\":389.4179894179895}}],\"singleVisual\":{\"visualType\":\"map\",\"projections\":{\"Category\":[{\"queryRef\":\"Orders.City\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"o\",\"Entity\":\"Orders\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"City\"},\"Name\":\"Orders.City\",\"NativeReferenceName\":\"City\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 389.42,
+          "width": 716.19,
+          "x": 333.54,
+          "y": 49.10,
+          "z": 0.00
+        }
+      ],
       "width": 1280.00
     }
   ]

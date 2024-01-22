@@ -313,10 +313,6 @@
           {
             "name": "PBI_ResultType",
             "value": "Table"
-          },
-          {
-            "name": "PBI_NavigationStepName",
-            "value": "Navigation"
           }
         ],
         "columns": [
@@ -1163,10 +1159,6 @@
           {
             "name": "PBI_ResultType",
             "value": "Table"
-          },
-          {
-            "name": "PBI_NavigationStepName",
-            "value": "Navigation"
           }
         ],
         "columns": [
@@ -1240,10 +1232,6 @@
       {
         "name": "orders by region",
         "annotations": [
-          {
-            "name": "PBI_NavigationStepName",
-            "value": "Navigation"
-          },
           {
             "name": "PBI_ResultType",
             "value": "Table"
@@ -2176,18 +2164,11 @@
         "name": "Dim Customer",
         "annotations": [
           {
-            "name": "PBI_NavigationStepName",
-            "value": "Navigation"
-          },
-          {
             "name": "PBI_ResultType",
             "value": "Table"
           }
         ],
         "changedProperties": [
-          {
-            "property": "Name"
-          },
           {
             "property": "IsHidden"
           }
@@ -2364,18 +2345,11 @@
         "name": "Dim Product",
         "annotations": [
           {
-            "name": "PBI_NavigationStepName",
-            "value": "Navigation"
-          },
-          {
             "name": "PBI_ResultType",
             "value": "Table"
           }
         ],
         "changedProperties": [
-          {
-            "property": "Name"
-          },
           {
             "property": "IsHidden"
           }
