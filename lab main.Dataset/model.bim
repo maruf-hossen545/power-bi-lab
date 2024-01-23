@@ -485,6 +485,10 @@
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
+              },
+              {
+                "name": "__PBI_SemanticLinks",
+                "value": "[{\"LinkTarget\":{\"TableName\":\"Orders\",\"TableItemName\":\"State (groups)\",\"ObjectType\":4},\"LinkType\":\"UsedInGroup\"}]"
               }
             ],
             "dataCategory": "StateOrProvince",
@@ -630,6 +634,55 @@
             "lineageTag": "5e97ddf5-d14a-4f34-b136-8a4e1e710f86",
             "sourceColumn": "Order ID",
             "summarizeBy": "none"
+          },
+          {
+            "name": "State (groups)",
+            "annotations": [
+              {
+                "name": "GroupingDesignState",
+                "value": "{\"Version\":0,\"Sources\":[{\"Name\":\"o\",\"Entity\":\"Orders\"}],\"GroupedColumns\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"State\"}}],\"GroupItems\":[{\"DisplayName\":\"(Blank)\",\"BlankDefaultPlaceholder\":true},{\"DisplayName\":\"New York\",\"Expression\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"State\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'New York'\"}}]]}}},{\"DisplayName\":\"Other\"}]}"
+              },
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "expression": [
+              "SWITCH(",
+              "\tTRUE,",
+              "\tISBLANK('Orders'[State]),",
+              "\t\"(Blank)\",",
+              "\t'Orders'[State] IN {\"New York\"},",
+              "\t\"New York\",",
+              "\t\"Other\"",
+              ")"
+            ],
+            "extendedProperties": [
+              {
+                "name": "GroupingMetadata",
+                "type": "json",
+                "value": {
+                  "groupedColumns": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Orders"
+                          }
+                        },
+                        "Property": "State"
+                      }
+                    }
+                  ],
+                  "version": 0
+                }
+              }
+            ],
+            "isDataTypeInferred": true,
+            "lineageTag": "4e1bc369-8f87-44f0-afbd-35d601259445",
+            "summarizeBy": "none",
+            "type": "calculated"
           }
         ],
         "hierarchies": [
